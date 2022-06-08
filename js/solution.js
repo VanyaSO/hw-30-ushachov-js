@@ -1,9 +1,40 @@
-let ul = document.getElementById('ulId');
+'use strict';
 
-const arr = [];
-
-for(let li of ul.children){
-    arr.push(li.innerHTML);
+function bind(func, ctx, arr){
+    return function (){
+        func.apply(ctx, arr);
+    }
 }
 
-console.log(arr);
+const ctx = {
+    name: "Petro",
+    lastName: "Ysovich",
+};
+
+function foo(q,w,e,r) {
+    console.log(q,w,e,r);
+    console.log(this);
+}
+
+let funkBind = bind(foo, ctx, [100,200,300,400]);
+funkBind();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
