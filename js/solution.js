@@ -11,8 +11,8 @@ const ctx = {
     lastName: "Ysovich",
 };
 
-function foo(q,w,e,r) {
-    console.log(q,w,e,r);
+function foo(a,w,e,r) {
+    console.log(a,w,e,r);
     console.log(this);
 }
 
