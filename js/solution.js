@@ -1,26 +1,27 @@
 'use strict';
 
-function bind(func, ctx, arr){
-    return function (){
-        func.apply(ctx, arr);
+void function () {
+    const ctx = {
+        name: "Petro",
+        lastName: "Ysovich",
+    };
+
+    function carData(name, lastName) {
+        console.log(`name: ${name} \n lastName: ${lastName} `);
     }
-}
 
-const ctx = {
-    name: "Petro",
-    lastName: "Ysovich",
-};
+    function bind(func, ctx) {
+        return function (argggs) {
+            const args = [].slice.call(arguments);
+            return func.apply(ctx, args);
+        };
+    }
 
-function foo(a,w,e,r) {
-    console.log(a,w,e,r);
-    console.log(this);
-}
+    bind(carData, ctx)('User', 'User');
 
-let funkBind = bind(foo, ctx, [100,200,300,400]);
-funkBind();
+}();
 
-
-
+// petro,Ysovich
 
 
 
